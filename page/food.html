@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/people.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Từ vừng tiếng anh</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#">Từ vựng</a>
+                    </li>
+                    <li>
+                        <a href="#">Giao tiếp</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+
+
+        </div>
+    </div>
+    <script>
+
+        $(document).ready(function () {
+           
+            $('button').one("click", function () {
+                var attr = $(this).attr("title");
+                if (attr == "emotions") {
+                    var subject = [];
+                    subject = emotions;
+                    for (var i = 0; i < subject.length; i++) {
+                        subject[i] = emotions[i];
+
+                    }
+                    for (var i = 0; i < subject.length; i++) {
+                        $('.row-2').append("");
+
+                        $text = "<div class='col-sm-4 col-md-3 col-lg-3'><div class='card'><div class='card-body'><h3 class='card-title'>";
+                        $text += subject[i].vocab + "</h3><h4 class='card-text'>";
+                        $text += subject[i].mean+"</h4><p class='card-text' style='color:#f70717'>";
+                        $text += subject[i].pronun+"</p>";
+                        $text += "<a link='" + subject[i].link + "' class='btn btn-default center'>Enter</a></div></div></div>";
+
+                        $('.row-2').append($text);
+
+                    }
+                }
+                $('a').click(function () {
+                    
+                    var x = $(this).attr('link');
+
+                    var audio = document.createElement('audio');
+                    audio.setAttribute('src', x);
+                    audio.play();
+                });
+            });
+
+        });
+    </script>
+    
+    <div class="row">
+
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <button class="btn btn-primary btn-block" title="emotions">Emotions</button>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <button class="btn btn-primary btn-block" title="body">Body</button>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <button class="btn btn-primary btn-block" title="family">Family</button>
+        </div>
+
+    </div>
+    <div class="row-2">
+
+    </div>
+</body>
+
+</html>

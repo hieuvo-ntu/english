@@ -56,10 +56,11 @@
     <script>
 
         $(document).ready(function () {
-            var subject = [];
+           
             $('button').one("click", function () {
                 var attr = $(this).attr("title");
                 if (attr == "emotions") {
+                    var subject = [];
                     subject = emotions;
                     for (var i = 0; i < subject.length; i++) {
                         subject[i] = emotions[i];
